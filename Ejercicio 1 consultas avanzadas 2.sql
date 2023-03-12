@@ -38,11 +38,47 @@ GROUP BY order_date;
 -- Genera una modificación de la consulta anterior para que agrupe los pedidos por cada mes concreto de cada año
 
 SELECT COUNT(*), order_date,
-MONTH(order_date)
+MONTH(order_date), YEAR(order_date)
 FROM orders 
-GROUP BY order_date
+GROUP BY order_date;
 
 
 -- Seleccionad las ciudades con 4 o más empleadas:
+-- Desde recursos humanos nos piden seleccionar los nombres de las ciudades con 4 o más empleadas 
+-- de cara a estudiar la apertura de nuevas oficinas.
+
+SELECT 
+    city, COUNT(employee_id)
+FROM
+    employees
+GROUP BY city
+HAVING COUNT(employee_id) >= 4;
+
 -- Cread una nueva columna basándonos en la cantidad monetaria:
--- Necesitamos una consulta que clasifique los pedidos en dos categorías ("Alto" y "Bajo") en función de la cantidad monetaria total que han supuesto: por encima o por debajo de 2000 euros.*/
+-- Necesitamos una consulta que clasifique los pedidos en dos categorías ("Alto" y "Bajo") 
+-- en función de la cantidad monetaria total que han supuesto: por encima o por debajo de 2000 euros.*/
+
+SELECT order_id
+	CASE
+	WHEN (unit_price*quantity) > 2000 THEN 'Alto'
+    ELSE 'Bajo'
+    END AS 'Cantidad monetaria'
+FROM order_details
+GROUP BY order_id;
+
+
+
+SELECT order_id, SUM(quantity*unit_price) AS 'total_pedido',
+		CASE 
+			WHEN SUM(quantity*unit_price) > 2000 THEN "Alto"
+			ELSE 'Bajo'
+            END AS 'Etiqueta'
+		FROM order_details
+		GROUP BY order_id;
+
+
+
+
+
+
+

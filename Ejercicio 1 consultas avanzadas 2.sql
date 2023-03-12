@@ -58,14 +58,6 @@ HAVING COUNT(employee_id) >= 4;
 -- Necesitamos una consulta que clasifique los pedidos en dos categorías ("Alto" y "Bajo") 
 -- en función de la cantidad monetaria total que han supuesto: por encima o por debajo de 2000 euros.*/
 
-SELECT order_id
-	CASE
-	WHEN (unit_price*quantity) > 2000 THEN 'Alto'
-    ELSE 'Bajo'
-    END AS 'Cantidad monetaria'
-FROM order_details
-GROUP BY order_id;
-
 
 
 SELECT order_id, SUM(quantity*unit_price) AS 'total_pedido',

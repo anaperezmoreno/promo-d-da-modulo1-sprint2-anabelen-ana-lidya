@@ -35,11 +35,25 @@ SELECT city, company_name, contact_name, COUNT(order_id)
 FROM customers
 INNER JOIN orders
 ON customers.customer_id = orders.customer_id
-WHERE city LIKE 'L%';
+WHERE city LIKE 'L%'
+GROUP BY city, company_name, contact_name;
 
 
 -- Todos los clientes cuyo "contact_title" no incluya "Sales".
--- Nuestro objetivo es extraer los clientes que no tienen el contacto "Sales" en su "contact_title". Extraer el nombre de contacto, su posisión (contact_title) y el nombre de la compañia.
+-- Nuestro objetivo es extraer los clientes que no tienen el contacto "Sales" en su "contact_title". Extraer el nombre de contacto, su posición (contact_title) y el nombre de la compañia.
+
+SELECT contact_name, contact_title, company_name
+FROM customers
+WHERE contact_title NOT LIKE '%sales%';
 
 -- Todos los clientes que no tengan una "A" en segunda posición en su nombre.
 -- Devolved unicamente el nombre de contacto.
+
+SELECT contact_name
+FROM customers
+WHERE contact_name NOT LIKE '_a%';
+
+
+
+
+

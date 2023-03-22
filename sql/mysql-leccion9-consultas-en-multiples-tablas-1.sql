@@ -1,4 +1,5 @@
 
+
 /* 1. Pedidos por empresa en UK:
 Desde las oficinas en UK nos han pedido con urgencia que realicemos una consulta a la base de datos 
 con la que podamos conocer cuántos pedidos ha realizado cada empresa cliente de UK.

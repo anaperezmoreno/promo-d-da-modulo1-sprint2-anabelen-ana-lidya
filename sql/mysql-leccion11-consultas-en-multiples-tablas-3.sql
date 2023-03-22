@@ -1,4 +1,5 @@
 
+
 /* 1. Extraer toda la información sobre las compañias que tengamos en la BBDD
 Nuestros jefes nos han pedido que creemos una query que nos devuelva todos los clientes y proveedores que tenemos en la BBDD. Mostrad la ciudad a la que pertenecen, el nombre de la empresa y el nombre del contacto, además de la relación (Proveedor o Cliente). Pero importante! No debe haber duplicados en nuestra respuesta. La columna Relationship no existe y debe ser creada como columna temporal. Para ello añade el valor que le quieras dar al campo y utilizada como alias Relationship.
 Nota: Deberás crear esta columna temporal en cada instrucción SELECT.*/
